@@ -1,30 +1,48 @@
-import React from "react";
+import React, {useState} from "react";
 import Container from "../../shared/styles/Container";
 import Form from "../shared/Form";
 import Input from "../../../../shareds/Input";
 import PrimaryButton from "../../../../shareds/Buttons/PrimaryButton";
+import UsersRepository from "../../../../repositories/UsersRepository";
 
 export default function SignUpForm() {
+
+  const [userParams, setUserParams] = useState({});
+  
+  const usersRepository = new UsersRepository();
+
+  const handleUserParamsChange = (e) => {
+    setUserParams({...userParams,
+      [e.target.name] : e.target.value
+    })
+    console.log(userParams);
+  }
+
+  const handleCreateAccountButtonClick = (e) => {
+    e.preventDefault();
+    usersRepository.create(userParams);
+  }
+
   return (
     <Container>
       <Form>
         <label>
           Nome
-          <Input placeholder="Digite seu nome" type="textfield"/>
+          <Input name="name" placeholder="Digite seu nome" type="textfield" onChange={handleUserParamsChange}/>
         </label>
         <label>
           Email
-          <Input placeholder="Digite sua email" type="textfield"/>
+          <Input name="email" placeholder="Digite sua email" type="textfield" onChange={handleUserParamsChange}/>
         </label>
         <label>
           Senha
-          <Input placeholder="Digite sua senha" type="password"/>
+          <Input name="password" placeholder="Digite sua senha" type="password" onChange={handleUserParamsChange}/>
         </label>
         <label>
           Data de aniversário
           <Input placeholder="Digite sua data de aniversário" type="date"/>
         </label>
-        <PrimaryButton>Entrar</PrimaryButton>
+        <PrimaryButton onClick={handleCreateAccountButtonClick}>Entrar</PrimaryButton>
       </Form>
     </Container>
   )
