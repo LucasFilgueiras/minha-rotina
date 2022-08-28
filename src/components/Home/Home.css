@@ -1,0 +1,144 @@
+.content {
+  margin-left: 2.5rem;
+}
+
+.titleHome {
+  margin-right: 45.4rem;
+}
+
+h2 {
+  margin-top: 2rem;
+  font-weight: lighter;
+  color: #59656F;
+}
+
+.btnAddTask {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  background: #7B78FF;
+  padding: .4rem;
+  border-radius: .5rem;
+  color: white;
+}
+
+.btnAddTask:hover {
+  cursor: pointer;
+}
+
+.btnAddTask img {
+  width: 20px;
+  height: 20px;
+}
+
+.tasksDates {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #59656F;
+  border-radius: .5rem;
+  padding: .6rem;
+  width: 60%;
+}
+
+.tasksDates img {
+  width: 20px;
+  height: 20px;
+}
+
+.tasksDates img:hover {
+  cursor: pointer;
+}
+
+.tasksItems1 {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.tasksItems1 .taskContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #7B78FF;
+  padding: .4rem .7rem;
+  border-radius: .5rem;
+  color: white;
+}
+
+.tasksItems1 .taskContainer img {
+  width: 23px;
+  height: 23px;
+}
+
+.tasksItems1 .taskContainer img:hover {
+  cursor: pointer;
+}
+
+.tasksItems1 .taskContainer .completeTask {
+  width: 20px;
+  height: 20px;
+  border-radius: .5rem;
+}
+
+.tasksItems1 .urgent {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  background: red;
+  padding: .3rem .4rem;
+  font-size: .85rem;
+  color: white;
+  border-radius: .5rem;
+}
+
+.tasksItems1 .urgent img {
+  width: 20px;
+  height: 20px;
+}
+
+/* -------------------------------------------- */
+
+.tasksItems2 {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.tasksItems2 .taskContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: .4rem .7rem;
+  border-radius: .5rem;
+  color: #59656F;
+  border: 2px solid #59656F;
+}
+
+.tasksItems2 .taskContainer img {
+  width: 23px;
+  height: 23px;
+}
+
+.tasksItems2 .taskContainer img:hover {
+  cursor: pointer;
+}
+
+.tasksItems2 .taskContainer .completeTask {
+  width: 20px;
+  height: 20px;
+  border-radius: .5rem;
+}
+
+/* ---------------------------------------------- */
+
+.divide {
+  height: 100%;
+  width: 3px;
+  background: #59656F;
+}

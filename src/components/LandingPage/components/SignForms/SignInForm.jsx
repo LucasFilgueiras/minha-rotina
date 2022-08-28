@@ -21,7 +21,7 @@ export default function SignInForm() {
     const handleSignInButtonClick = async (e) => {
     e.preventDefault();
     const response = await usersRepository.signIn({email: userParams.email, password: userParams.password});
-    console.log(response);
+    console.log(response); 
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import mulherCorrendo from "../../assets/mulher-correndo.svg";
+import personCelphone from "../../assets/person_celphone.svg";
 import PrimaryButton from "../../shareds/Buttons/PrimaryButton";
 import "./LandingPage.css";
 import SignInForm from "./components/SignForms/SignInForm";
@@ -13,7 +13,7 @@ const LandingPage = () => {
       <h1>Minha Rotina</h1>
       <div className="content">
         <div className="leftSide">
-          <img src={mulherCorrendo} alt="Mulher correndo" />
+          <img src={personCelphone} alt="Mulher mexendo no celular" />
           <p>
             Organize suas rotinas de <br /> forma prática
           </p>

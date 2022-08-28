@@ -38,10 +38,6 @@ export default function SignUpForm() {
           Senha
           <Input name="password" placeholder="Digite sua senha" type="password" onChange={handleUserParamsChange}/>
         </label>
-        <label>
-          Data de aniversário
-          <Input placeholder="Digite sua data de aniversário" type="date"/>
-        </label>
         <PrimaryButton onClick={handleCreateAccountButtonClick}>Entrar</PrimaryButton>
       </Form>
     </Container>
