@@ -21,7 +21,8 @@ export default function SignInForm() {
     const handleSignInButtonClick = async (e) => {
     e.preventDefault();
     const response = await usersRepository.signIn({email: userParams.email, password: userParams.password});
-    console.log(response); 
+    const user = {...response.headers, ...response.data}
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   return (
@@ -33,7 +34,7 @@ export default function SignInForm() {
         </label>
         <label>
           Senha
-          <Input name="password" placeholder="Digite sua senha" type="textfield" onChange={handleUserParamsChange}/>
+          <Input name="password" placeholder="Digite sua senha" type="password" onChange={handleUserParamsChange}/>
         </label>
         <PrimaryButton onClick={handleSignInButtonClick}>Entrar</PrimaryButton>
       </Form>

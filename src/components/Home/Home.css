@@ -36,11 +36,18 @@ h2 {
 .tasksDates {
   margin-top: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
   border: 2px solid #59656F;
   border-radius: .5rem;
   padding: .6rem;
-  width: 60%;
+  width: 86%;
+  overflow: hidden;
+}
+
+.tasksDates img:nth-child(2) {
+  margin-right: 90%;
 }
 
 .tasksDates img {

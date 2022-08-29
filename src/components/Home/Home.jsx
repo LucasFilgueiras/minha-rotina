@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import add_task from "../../assets/add_task.svg";
 import left_arrow from "../../assets/left_arrow.svg";
@@ -8,6 +8,25 @@ import options from "../../assets/options.svg";
 import options2 from "../../assets/options2.svg";
 
 const Home = () => {
+  const [weekDays, setWeekDays] = useState([]);
+
+  useEffect(() => {
+    calculateWeekDays();
+  }, []);
+
+  const calculateWeekDays = (currentDate) => {
+    const days = [];
+    let index = 0;
+    while (index <= 7) {
+      const date = new Date();
+      date.setDate(date.getDate() + index);
+      days.push(date);
+      console.log(date);
+      index++;
+    }
+    setWeekDays(days.map((date) => date.toLocaleDateString()));
+  };
+
   return (
     <div className="content">
       <div className="tasks">
@@ -18,8 +37,9 @@ const Home = () => {
           <img src={add_task} alt="Adicionar tarefa" />
         </button>
         <div className="tasksDates">
-          <img src={left_arrow} alt="" />
-          <img src={right_arrow} alt="" />
+          {weekDays.map((date) => (
+            <p onClick={null}>{date}</p>
+          ))}
         </div>
         <div className="tasksItems1">
           <div className="taskContainer">
@@ -43,7 +63,7 @@ const Home = () => {
       <div className="divide"></div>
       <div className="spotify"></div>
     </div>
-  )
-}
+  );
+};
 
 export default Home;
