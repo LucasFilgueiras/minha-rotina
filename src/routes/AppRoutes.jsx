@@ -1,7 +1,6 @@
 import React from "react";
 import {
   BrowserRouter,
-  Switch,
   Route,
   Routes
 } from "react-router-dom";

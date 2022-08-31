@@ -4,18 +4,18 @@ import PrimaryButton from "../../../../shareds/Buttons/PrimaryButton";
 import Form from "../shared/Form";
 import Input from "../../../../shareds/Input";
 import UsersRepository from "../../../../repositories/UsersRepository";
+import { useNavigate } from "react-router-dom";
 
 export default function SignInForm() {
+  const usersRepository = new UsersRepository();
 
   const [userParams, setUserParams] = useState({email: null, password: null});
-  
-  const usersRepository = new UsersRepository();
+  const navigate = useNavigate();
 
   const handleUserParamsChange = (e) => {
     setUserParams({...userParams,
       [e.target.name] : e.target.value
     })
-    console.log(userParams);
   }
 
     const handleSignInButtonClick = async (e) => {
@@ -24,10 +24,11 @@ export default function SignInForm() {
       const response = await usersRepository.signIn({email: userParams.email, password: userParams.password});
       const user = {...response.headers, ...response.data}
       localStorage.setItem("user", JSON.stringify(user));
+      navigate('/')
     } catch (error) {
       console.log(new Error (error.message));
     }
-    
+
   }
 
   return (

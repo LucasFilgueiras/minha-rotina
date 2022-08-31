@@ -1,5 +1,7 @@
 .content {
-  margin-left: 2.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .titleHome {
@@ -36,14 +38,55 @@ h2 {
 .tasksDates {
   margin-top: 1.5rem;
   display: flex;
-  gap: .5rem;
+  gap: 1rem;
   align-items: center;
   justify-content: center;
   border: 2px solid #59656F;
   border-radius: .5rem;
   padding: .6rem;
-  width: 86%;
   overflow: hidden;
+}
+
+.tasksDates > span {
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form > label {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form > label > input {
+  height: 2rem;
+}
+
+form > label > textarea {
+  width: 100%;
+  padding-top: 10px;
+  height: 5rem;
+}
+
+form > label > input, textarea {
+  text-indent: 10px;
+  background: #F0F2FF;
+  border-radius: 0.5rem;
+}
+
+.currentDay {
+  background: #59656F;
+  font-weight: bold;
+  color: white;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
 }
 
 .tasksDates img:nth-child(2) {
@@ -67,13 +110,21 @@ h2 {
 }
 
 .tasksItems1 .taskContainer {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
   background: #7B78FF;
   padding: .4rem .7rem;
   border-radius: .5rem;
   color: white;
+}
+
+.tasksItems1 .taskContainer div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .tasksItems1 .taskContainer img {

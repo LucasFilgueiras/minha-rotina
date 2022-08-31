@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import personCelphone from "../../assets/person_celphone.svg";
 import PrimaryButton from "../../shareds/Buttons/PrimaryButton";
-import "./LandingPage.css";
+import styles from "./LandingPage.module.css";
 import SignInForm from "./components/SignForms/SignInForm";
 import Container from "./shared/styles/Container";
 import SignUpForm from "./components/SignForms/SignUpForms";
@@ -9,10 +9,10 @@ import SignUpForm from "./components/SignForms/SignUpForms";
 const LandingPage = () => {
   const [currentComponent, setCurrentComponent] = useState(null);
   return (
-    <div className="page">
+    <div className={styles.page}>
       <h1>Minha Rotina</h1>
-      <div className="content">
-        <div className="leftSide">
+      <div className={styles.content}>
+        <div className={styles.leftSide}>
           <img src={personCelphone} alt="Mulher mexendo no celular" />
           <p>
             Organize suas rotinas de <br /> forma prática
@@ -24,7 +24,7 @@ const LandingPage = () => {
             <PrimaryButton onClick={() => setCurrentComponent("sign in")}>
               Faça login
             </PrimaryButton>
-            <div className="blackLine"></div>
+            <div className={styles.blackLine}></div>
             <h2>Não possui uma conta?</h2>
             <PrimaryButton onClick={() => setCurrentComponent("sign up")}>
               Cadastre-se
