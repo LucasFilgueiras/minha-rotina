@@ -18,11 +18,17 @@ const Home = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [updateEventModalIsOpen, setUpdateEventModalIsOpen] = useState(false);
   const [eventParams, setEventParams] = useState({});
+  const [eventsCategories, setEventsCategories] = useState([]);
 
   useEffect(() => {
     generateWeekDays(currentDay.toDateString());
     getEvents(currentDay);
+    getEventsCategories();
   }, []);
+
+  const getEventsCategories = async () => {
+    setEventsCategories(await eventsRepository.getEventsCategories());
+  }
 
   const generateWeekDays = (dateString) => {
     let days = [];
@@ -78,6 +84,7 @@ const Home = () => {
 
   const handleCreateEventInputsChange = (event) => {
     setEventParams({...eventParams, [event.target.name]: event.target.value })
+    console.log(event.target.value, event.target.name);
   }
 
   const handleCreateEventButtonClick = (event) => {
@@ -113,7 +120,6 @@ const Home = () => {
     }
   }
 
-
   return (
     <div className="content">
       <div className="tasks">
@@ -144,6 +150,7 @@ const Home = () => {
               {event.description ?? <small>
                 {event.description}
               </small>}
+              <p className="description">{event.category_name}</p>
             </div>
             <BsThreeDots cursor="pointer" fontSize={20} onClick={() => openUpdateEventModal(event.id)}/>
           </div>
@@ -176,7 +183,13 @@ const Home = () => {
           </label>
           <label>
             Data de início
-            <input type="date" name="start_date" placeholder="título" onChange={handleCreateEventInputsChange}/>
+            <input type="datetime-local" name="start_date" onChange={handleCreateEventInputsChange}/>
+          </label>
+          <label>
+            Categoria
+            <select name="event_category_id" id="" onChange={handleCreateEventInputsChange}>
+              {eventsCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
+            </select>
           </label>
           <PrimaryButton onClick={handleCreateEventButtonClick}>criar evento</PrimaryButton>
         </form>
@@ -199,6 +212,10 @@ const Home = () => {
           <label>
             Data de início
             <input type="date" name="start_date" placeholder="título" onChange={handleCreateEventInputsChange}/>
+          </label>
+          <label>
+            Categoria
+            
           </label>
           <PrimaryButton onClick={handleUpdateEventButtonClick}>editar evento</PrimaryButton>
           <DangerButton onClick={handleDeleteEventButtonClick}>excluir evento</DangerButton>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { api } from "../api/api";
 
 export default class EventsRepository {
@@ -36,6 +37,15 @@ export default class EventsRepository {
       await this._requester.delete(`/api/v1/events/${eventId}`);
     } catch(error) {
       console.log(error);
+    }
+  }
+
+  async getEventsCategories() {
+    try {
+      const response = await this._requester.get("api/v1/event_categories");
+      return response.data.result;
+    } catch (error) {
+      console.loh(error)
     }
   }
 }
